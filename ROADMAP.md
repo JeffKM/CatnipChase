@@ -73,19 +73,19 @@
   - TypeScript strict 모드 설정
   - ESLint 설정
 
-- **Task 002: Phaser 캔버스 마운트 및 씬 전환 구조 구현** - 우선순위
+- ✅ **Task 002: Phaser 캔버스 마운트 및 씬 전환 구조 구현** — 완료
   - PRD 기능: F013 (Title 씬 기초)
   - 의존성: Task 001
-  - `src/components/GameCanvas.tsx` - Phaser 인스턴스 마운트 React 래퍼 컴포넌트
-  - `src/app/page.tsx` - 게임 캔버스 마운트 페이지 (TailwindCSS로 전체화면 중앙 정렬)
-  - `src/game/main.ts` - Phaser 게임 설정 (256x240 내부 해상도, 16:9 레터박스, WebGL)
-  - 4개 씬 빈 껍데기 파일 생성:
-    - `src/game/scenes/TitleScene.ts`
-    - `src/game/scenes/GameScene.ts`
-    - `src/game/scenes/ClearScene.ts`
-    - `src/game/scenes/GameOverScene.ts`
-  - 씬 간 전환 플로우 구현 (Title -> Game -> Clear/GameOver -> Title)
-  - 브라우저에서 Phaser 캔버스 정상 렌더링 확인
+  - ✅ `src/components/GameCanvas.tsx` - Phaser 인스턴스 마운트 React 래퍼 컴포넌트
+  - ✅ `src/app/page.tsx` - 게임 캔버스 마운트 페이지 (TailwindCSS로 전체화면 중앙 정렬)
+  - ✅ `src/game/main.ts` - Phaser 게임 설정 (256x240 내부 해상도, 16:9 레터박스, WebGL)
+  - ✅ 4개 씬 빈 껍데기 파일 생성:
+    - ✅ `src/game/scenes/TitleScene.ts`
+    - ✅ `src/game/scenes/GameScene.ts`
+    - ✅ `src/game/scenes/ClearScene.ts`
+    - ✅ `src/game/scenes/GameOverScene.ts`
+  - ✅ 씬 간 전환 플로우 구현 (Title -> Game -> Clear/GameOver -> Title)
+  - ✅ 브라우저에서 Phaser 캔버스 정상 렌더링 확인
 
 - **Task 003: 타입 정의 및 인터페이스 설계**
   - PRD 기능: 없음 (타입 인프라)
@@ -602,7 +602,7 @@ Task 001 (프로젝트 셋업)
 
 | Phase | 설명 | Task 수 | 완료 | 상태 |
 |-------|------|---------|------|------|
-| Phase 1 | 프로젝트 셋업 및 골격 구축 | 3 | 1 | 진행 중 |
+| Phase 1 | 프로젝트 셋업 및 골격 구축 | 3 | 2 | 진행 중 |
 | Phase 2 | 플레이어 기초 및 핵심 조작 | 3 | 0 | 대기 |
 | Phase 3 | 게임 시스템 및 HUD | 3 | 0 | 대기 |
 | Phase 4 | 씬 UI 완성 | 3 | 0 | 대기 |
@@ -612,4 +612,4 @@ Task 001 (프로젝트 셋업)
 | Phase 8 | 스테이지 완성 및 밸런스 | 3 | 0 | 대기 |
 | Phase 9 | 배포 | 1 | 0 | 대기 |
 | Phase 10 | MVP 이후 확장 | 9 | 0 | 대기 |
-| **합계** | | **31** | **1** | |
+| **합계** | | **31** | **2** | |
