@@ -20,6 +20,8 @@ export const FONT = {
 
 // 플레이어 (시온)
 export const PLAYER = {
+  WIDTH: 16 * 3,             // 48 (캔버스 기준)
+  HEIGHT: 20 * 3,            // 60 (캔버스 기준)
   MAX_SPEED: 120,            // px/s
   ACCELERATION: 600,         // px/s²
   DECELERATION: 500,         // px/s²
