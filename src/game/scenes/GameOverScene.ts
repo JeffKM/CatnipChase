@@ -1,4 +1,6 @@
 import { Scene } from 'phaser'
+import { FONT } from '../constants'
+import { addText } from '../utils'
 
 // 게임 오버 씬
 export class GameOverScene extends Scene {
@@ -15,22 +17,18 @@ export class GameOverScene extends Scene {
   create() {
     const { width, height } = this.scale
 
-    this.add.text(width / 2, height / 2 - 30, 'GAME OVER', {
-      fontSize: '16px',
+    addText(this, width / 2, height / 2 - 90, 'GAME OVER', {
+      fontSize: FONT.SIZE_LG,
       color: '#ff0000',
-      fontFamily: 'monospace',
     }).setOrigin(0.5)
 
-    this.add.text(width / 2, height / 2, `SCORE: ${this.score}`, {
-      fontSize: '12px',
-      color: '#ffffff',
-      fontFamily: 'monospace',
+    addText(this, width / 2, height / 2, `SCORE: ${this.score}`, {
+      fontSize: FONT.SIZE_MD,
     }).setOrigin(0.5)
 
-    this.add.text(width / 2, height / 2 + 30, 'PRESS ANY KEY TO RETURN', {
-      fontSize: '8px',
+    addText(this, width / 2, height / 2 + 90, 'PRESS ANY KEY TO RETURN', {
+      fontSize: FONT.SIZE_XS,
       color: '#ffff00',
-      fontFamily: 'monospace',
     }).setOrigin(0.5)
 
     // 아무 키 → 타이틀로 복귀

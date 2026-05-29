@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import '@kfonts/neodgm'
 
 // Phaser 캔버스를 마운트하는 React 래퍼
 export default function GameCanvas() {
@@ -11,6 +12,8 @@ export default function GameCanvas() {
     if (!containerRef.current || gameRef.current) return
 
     const initGame = async () => {
+      // 폰트 로드 대기 후 게임 시작
+      await document.fonts.ready
       const { createGame } = await import('@/game/main')
       gameRef.current = createGame(containerRef.current!)
     }

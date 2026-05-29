@@ -2,10 +2,20 @@
 export const GAME_CONFIG = {
   WIDTH: 256,
   HEIGHT: 240,
-  SCALE_MODE: 'FIT',
+  RENDER_SCALE: 3,  // 캔버스 해상도 배율 (256×240 → 768×720)
   BACKGROUND_COLOR: 0x000000,
   PHYSICS: 'arcade',
   PIXEL_ART: true,
+} as const;
+
+// 폰트 설정 (768×720 캔버스 기준)
+const S = GAME_CONFIG.RENDER_SCALE
+export const FONT = {
+  FAMILY: '"Neo둥근모", "NeoDunggeunmo", monospace',
+  SIZE_LG: `${16 * S}px`,
+  SIZE_MD: `${12 * S}px`,
+  SIZE_SM: `${10 * S}px`,
+  SIZE_XS: `${8 * S}px`,
 } as const;
 
 // 플레이어 (시온)

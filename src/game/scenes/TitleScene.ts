@@ -1,4 +1,6 @@
 import { Scene } from 'phaser'
+import { FONT } from '../constants'
+import { addText } from '../utils'
 
 // 타이틀 화면 씬
 export class TitleScene extends Scene {
@@ -12,17 +14,14 @@ export class TitleScene extends Scene {
     const { width, height } = this.scale
 
     // 게임 타이틀
-    this.add.text(width / 2, height / 2 - 30, '캣닢 대탈환 작전', {
-      fontSize: '16px',
-      color: '#ffffff',
-      fontFamily: 'monospace',
+    addText(this, width / 2, height / 2 - 90, '캣닢 대탈환 작전', {
+      fontSize: FONT.SIZE_LG,
     }).setOrigin(0.5)
 
     // 시작 안내 텍스트 (깜빡임)
-    const startText = this.add.text(width / 2, height / 2 + 20, 'PRESS START', {
-      fontSize: '10px',
+    const startText = addText(this, width / 2, height / 2 + 60, 'PRESS START', {
+      fontSize: FONT.SIZE_SM,
       color: '#ffff00',
-      fontFamily: 'monospace',
     }).setOrigin(0.5)
 
     this.blinkTimer = this.time.addEvent({

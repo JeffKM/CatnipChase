@@ -1,4 +1,6 @@
 import { Scene } from 'phaser'
+import { FONT } from '../constants'
+import { addText } from '../utils'
 
 // 메인 게임 플레이 씬
 export class GameScene extends Scene {
@@ -10,23 +12,18 @@ export class GameScene extends Scene {
     const { width, height } = this.scale
 
     // 임시 안내 텍스트
-    this.add.text(width / 2, height / 2 - 10, 'Game Scene', {
-      fontSize: '14px',
-      color: '#ffffff',
-      fontFamily: 'monospace',
+    addText(this, width / 2, height / 2 - 30, 'Game Scene', {
+      fontSize: FONT.SIZE_MD,
     }).setOrigin(0.5)
 
-    this.add.text(width / 2, height / 2 + 15, '개발 중', {
-      fontSize: '10px',
-      color: '#aaaaaa',
-      fontFamily: 'monospace',
+    addText(this, width / 2, height / 2 + 45, '개발 중', {
+      fontSize: FONT.SIZE_SM,
     }).setOrigin(0.5)
 
     // 테스트용 씬 전환 안내
-    this.add.text(width / 2, height - 20, 'C: Clear / G: GameOver', {
-      fontSize: '8px',
-      color: '#666666',
-      fontFamily: 'monospace',
+    addText(this, width / 2, height - 60, 'C: Clear / G: GameOver', {
+      fontSize: FONT.SIZE_XS,
+      color: '#cccccc',
     }).setOrigin(0.5)
 
     // 임시 테스트용 키 바인딩
