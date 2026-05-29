@@ -14,9 +14,9 @@
 
 | 구분 | 기술 |
 |------|------|
-| 게임 엔진 | Phaser 3.87+ |
-| 웹 프레임워크 | Next.js 15 (App Router) |
-| 언어 | TypeScript 5.6+ |
+| 게임 엔진 | Phaser 3.90.0 |
+| 웹 프레임워크 | Next.js 16 (App Router) |
+| 언어 | TypeScript 5 |
 | 스타일링 | TailwindCSS v4 |
 | 오디오 | jsfxr (8비트 효과음) |
 | 배포 | Vercel |
@@ -62,18 +62,18 @@
 
 > PRD 개발 순서 1단계 + 2단계에 해당. 전체 프로젝트 구조와 씬 전환 골격을 먼저 완성한다.
 
-- **Task 001: 프로젝트 초기 설정 및 개발 환경 구축** - 우선순위
+- ✅ **Task 001: 프로젝트 초기 설정 및 개발 환경 구축** — 완료
   - PRD 기능: 없음 (인프라)
   - 의존성: 없음
-  - Next.js 15 + TypeScript 5.6+ 프로젝트 생성
-  - Phaser 3.87+ 패키지 설치 및 설정
+  - Next.js 16 + TypeScript 5 프로젝트 생성
+  - Phaser 3.90.0 패키지 설치 및 설정
   - TailwindCSS v4 설정
   - `src/game/`, `src/components/`, `src/app/` 디렉토리 구조 생성
   - `src/game/constants.ts` 파일 생성 (PRD 수치 상수 전부 정의)
   - TypeScript strict 모드 설정
-  - ESLint, Prettier 설정
+  - ESLint 설정
 
-- **Task 002: Phaser 캔버스 마운트 및 씬 전환 구조 구현**
+- **Task 002: Phaser 캔버스 마운트 및 씬 전환 구조 구현** - 우선순위
   - PRD 기능: F013 (Title 씬 기초)
   - 의존성: Task 001
   - `src/components/GameCanvas.tsx` - Phaser 인스턴스 마운트 React 래퍼 컴포넌트
@@ -602,7 +602,7 @@ Task 001 (프로젝트 셋업)
 
 | Phase | 설명 | Task 수 | 완료 | 상태 |
 |-------|------|---------|------|------|
-| Phase 1 | 프로젝트 셋업 및 골격 구축 | 3 | 0 | 대기 |
+| Phase 1 | 프로젝트 셋업 및 골격 구축 | 3 | 1 | 진행 중 |
 | Phase 2 | 플레이어 기초 및 핵심 조작 | 3 | 0 | 대기 |
 | Phase 3 | 게임 시스템 및 HUD | 3 | 0 | 대기 |
 | Phase 4 | 씬 UI 완성 | 3 | 0 | 대기 |
@@ -612,4 +612,4 @@ Task 001 (프로젝트 셋업)
 | Phase 8 | 스테이지 완성 및 밸런스 | 3 | 0 | 대기 |
 | Phase 9 | 배포 | 1 | 0 | 대기 |
 | Phase 10 | MVP 이후 확장 | 9 | 0 | 대기 |
-| **합계** | | **31** | **0** | |
+| **합계** | | **31** | **1** | |

@@ -1,1 +1,34 @@
-// Phaser 인스턴스 마운트 래퍼 — Task 002에서 구현
+'use client'
+
+import { useEffect, useRef } from 'react'
+
+// Phaser 캔버스를 마운트하는 React 래퍼
+export default function GameCanvas() {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const gameRef = useRef<Phaser.Game | null>(null)
+
+  useEffect(() => {
+    if (!containerRef.current || gameRef.current) return
+
+    const initGame = async () => {
+      const { createGame } = await import('@/game/main')
+      gameRef.current = createGame(containerRef.current!)
+    }
+
+    initGame()
+
+    return () => {
+      if (gameRef.current) {
+        gameRef.current.destroy(true)
+        gameRef.current = null
+      }
+    }
+  }, [])
+
+  return (
+    <div
+      ref={containerRef}
+      style={{ width: '100%', maxWidth: '768px', aspectRatio: '256 / 240' }}
+    />
+  )
+}

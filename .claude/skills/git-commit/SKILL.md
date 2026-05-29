@@ -1,5 +1,5 @@
 ---
-name: git-commit-skill
+name: git-commit
 description: Git 변경사항을 분석하여 컨벤셔널 커밋 형식의 한국어 커밋 메시지를 자동으로 생성합니다. 사용자가 커밋 메시지 작성, git commit, 변경사항 요약을 요청하거나 git diff 결과가 있을 때 사용하세요.
 context: fork
 agent: Plan
