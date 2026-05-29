@@ -58,7 +58,7 @@
 
 ## 개발 단계
 
-### Phase 1: 프로젝트 셋업 및 애플리케이션 골격 구축
+### Phase 1: 프로젝트 셋업 및 애플리케이션 골격 구축 ✅
 
 > PRD 개발 순서 1단계 + 2단계에 해당. 전체 프로젝트 구조와 씬 전환 골격을 먼저 완성한다.
 
@@ -86,23 +86,23 @@
     - ✅ `src/game/scenes/GameOverScene.ts`
   - ✅ 씬 간 전환 플로우 구현 (Title -> Game -> Clear/GameOver -> Title)
   - ✅ 브라우저에서 Phaser 캔버스 정상 렌더링 확인
+  - ✅ Neo둥근모 픽셀 폰트 적용 (`@kfonts/neodgm` 패키지 설치, 폰트 로드 대기 후 게임 시작)
+  - ✅ 캔버스 해상도 3배 향상 (256×240 → 768×720, `RENDER_SCALE` 상수 추가)
+  - ✅ 폰트 설정 상수 추가 (`constants.ts`의 `FONT` 객체: SIZE_LG/MD/SM/XS)
+  - ✅ 텍스트 생성 헬퍼 유틸리티 추가 (`src/game/utils.ts`의 `addText` 함수)
+  - ✅ 4개 씬 텍스트를 Neo둥근모 폰트 기반으로 전환
 
-- **Task 003: 타입 정의 및 인터페이스 설계**
+- ✅ **Task 003: 타입 정의 및 인터페이스 설계** — 완료
   - PRD 기능: 없음 (타입 인프라)
   - 의존성: Task 001
-  - `src/game/types.ts` - 게임 전체 타입 정의 파일 생성
-    - 플레이어 상태 타입 (PlayerState, PlayerConfig)
-    - 보스 상태 타입 (BossState, BossConfig, BossPattern)
-    - 장애물 타입 (ObstacleType, ObstacleConfig)
-    - 아이템 타입 (ItemType, ItemConfig)
-    - 게임 시스템 타입 (HeartSystem, ScoreSystem)
-    - 씬 전환 데이터 타입 (SceneData, GameResult)
-    - 스테이지 설정 타입 (StageConfig, SpawnPoint)
-  - `src/game/constants.ts` 확장 - PRD 물리/수치 상수 정의
-    - 플레이어 물리값 (속도, 가속도, 점프, 찧기, 무적시간 등)
-    - 보스 수치값 (HP, 순찰속도, 돌진속도, 딜레이, 쿨타임)
-    - 장애물 수치값 (피해, 이동속도, 파괴조건, 점수)
-    - 아이템 수치값 (점수, 효과, 배치 빈도)
+  - ✅ `src/game/types.ts` - 게임 전체 타입 정의 파일 생성
+    - ✅ 플레이어 상태 타입 (Direction, PlayerState)
+    - ✅ 보스 상태 타입 (BossState, BossPattern)
+    - ✅ 장애물 타입 (ObstacleType, ObstacleConfig)
+    - ✅ 아이템 타입 (ItemType, ItemConfig)
+    - ✅ 씬 전환 데이터 타입 (SceneData, GameResult)
+    - ✅ 스테이지 설정 타입 (StageConfig, SpawnPoint)
+  - ✅ 기존 씬 파일에 SceneData 타입 적용 (ClearScene, GameOverScene, GameScene)
 
 ---
 
@@ -602,8 +602,8 @@ Task 001 (프로젝트 셋업)
 
 | Phase | 설명 | Task 수 | 완료 | 상태 |
 |-------|------|---------|------|------|
-| Phase 1 | 프로젝트 셋업 및 골격 구축 | 3 | 2 | 진행 중 |
-| Phase 2 | 플레이어 기초 및 핵심 조작 | 3 | 0 | 대기 |
+| Phase 1 | 프로젝트 셋업 및 골격 구축 | 3 | 3 | ✅ 완료 |
+| Phase 2 | 플레이어 기초 및 핵심 조작 | 3 | 0 | 🔧 진행 중 |
 | Phase 3 | 게임 시스템 및 HUD | 3 | 0 | 대기 |
 | Phase 4 | 씬 UI 완성 | 3 | 0 | 대기 |
 | Phase 5 | 장애물 구현 | 3 | 0 | 대기 |
@@ -612,4 +612,4 @@ Task 001 (프로젝트 셋업)
 | Phase 8 | 스테이지 완성 및 밸런스 | 3 | 0 | 대기 |
 | Phase 9 | 배포 | 1 | 0 | 대기 |
 | Phase 10 | MVP 이후 확장 | 9 | 0 | 대기 |
-| **합계** | | **31** | **2** | |
+| **합계** | | **31** | **3** | |
