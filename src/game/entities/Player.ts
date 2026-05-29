@@ -9,8 +9,10 @@ const S = GAME_CONFIG.RENDER_SCALE
 export class Player extends Physics.Arcade.Sprite {
   private cursors!: Phaser.Types.Input.Keyboard.CursorKeys
   private jumpKey!: Input.Keyboard.Key
+  private slamKey!: Input.Keyboard.Key
   private _state: PlayerState = PlayerState.IDLE
   private _direction: Direction = Direction.RIGHT
+  private _isSlamming = false
 
   // 플레이스홀더 텍스처 생성 (캐시 가드 포함)
   static createTexture(scene: Scene): void {
@@ -44,12 +46,14 @@ export class Player extends Physics.Arcade.Sprite {
     if (keyboard) {
       this.cursors = keyboard.createCursorKeys()
       this.jumpKey = keyboard.addKey(Input.Keyboard.KeyCodes.SPACE)
+      this.slamKey = keyboard.addKey(Input.Keyboard.KeyCodes.Z)
     }
   }
 
   update(delta: number): void {
     this.handleMovement(delta)
     this.handleJump()
+    this.handleSlam()
     this.updateState()
   }
 
@@ -93,12 +97,34 @@ export class Player extends Physics.Arcade.Sprite {
     }
   }
 
+  // 슈퍼 엉덩이 찧기 처리
+  private handleSlam(): void {
+    const body = this.body as Physics.Arcade.Body
+
+    // 공중에서 Z키 입력 시 찧기 시작
+    if (Input.Keyboard.JustDown(this.slamKey) && !body.blocked.down && !this._isSlamming) {
+      this._isSlamming = true
+      // 수평 속도 제거 → 수직 급강하
+      body.setVelocityX(0)
+      body.setAccelerationX(0)
+      body.setVelocityY(PLAYER.SLAM_VELOCITY * S)
+    }
+
+    // 찧기 중 착지 감지 → 충격파 이벤트 발행
+    if (this._isSlamming && body.blocked.down) {
+      this._isSlamming = false
+      this.emit('slam-land', this.x, this.y + PLAYER.HEIGHT / 2)
+    }
+  }
+
   // 플레이어 상태 갱신
   private updateState(): void {
     const body = this.body as Physics.Arcade.Body
     const onGround = body.blocked.down
 
-    if (!onGround) {
+    if (this._isSlamming) {
+      this._state = PlayerState.SLAMMING
+    } else if (!onGround) {
       this._state = body.velocity.y < 0
         ? PlayerState.JUMPING
         : PlayerState.FALLING
@@ -119,5 +145,9 @@ export class Player extends Physics.Arcade.Sprite {
 
   get isOnGround(): boolean {
     return (this.body as Physics.Arcade.Body).blocked.down
+  }
+
+  get isSlamming(): boolean {
+    return this._isSlamming
   }
 }

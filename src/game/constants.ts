@@ -77,6 +77,17 @@ export const ITEMS = {
   },
 } as const;
 
+// 스테이지
+export const STAGE = {
+  WIDTH: 2048,               // 내부 해상도 기준 스테이지 너비 (8 화면분)
+} as const;
+
+// 카메라
+export const CAMERA = {
+  DEADZONE_WIDTH: 20,        // px (내부 해상도 기준) — 수평 데드존
+  FOLLOW_OFFSET_X: 60,       // px (내부 해상도 기준) — 양수 = 플레이어가 화면 좌측에 위치
+} as const;
+
 // 점수
 export const SCORE = {
   FISH_BONE: 500,
